@@ -5,11 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc --jsx react-jsx index.tsx"
+    "build": "tsc --jsx react-jsx --lib es2021 index.tsx"
   },
   "author": "lunaroyster",
   "license": "MIT",
   "dependencies": {
     "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.33"
   }
 }
