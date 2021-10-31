@@ -1,0 +1,14 @@
+{
+  "name": "uselocalstoragestate",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.tsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "lunaroyster",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^17.0.2"
+  }
+}
