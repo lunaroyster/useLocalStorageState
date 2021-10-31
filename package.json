@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc --jsx react-jsx --lib es2021 index.tsx"
+    "build": "tsc --jsx react-jsx --lib es2021,dom index.tsx"
   },
   "author": "lunaroyster",
   "license": "MIT",
