@@ -28,4 +28,4 @@ function Example() {
 }
 ```
 
-3. That's mostly it! Now you can use `useLocalStorageState` in any other component. It will stay in sync as you dispatch updates.
+3. That's mostly it! Now you can use `useLocalStorageState` in any other component. It will stay in sync as you dispatch updates, even across tabs

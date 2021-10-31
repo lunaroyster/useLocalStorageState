@@ -26,6 +26,12 @@ const LocalStorageContext = createContext<LocalStorageContextState>({
   initItem: () => {},
 });
 
+/**
+ * Returns a state from localStorage, and a setter to change that state. 
+ * @param name The name. This is used as the `key` in localStorage.
+ * @param initialValue If the value doesn't already exist, it will be initialized with `initialValue`
+ * @returns the current state, and a setter
+ */
 export function useLocalStorageState<T>(name: string, initialValue: T) {
   const { state, setItem, initItem } = useContext(LocalStorageContext);
 
@@ -91,6 +97,21 @@ export function LocalStorageContextProvider({ children }) {
     },
     [state]
   );
+
+  useEffect(() => {
+    const listener = (e: StorageEvent) => {
+      if (e.storageArea !== window.localStorage) {
+        return;
+      }
+
+      dispatch({ type: "set", key: e.key, value: e.newValue });
+    };
+    window.addEventListener('storage', listener);
+
+    return () => {
+      window.removeEventListener('storage', listener);
+    }
+  }, []);
 
   return (
     <LocalStorageContext.Provider value={{ state, setItem, getItem, initItem }}>
