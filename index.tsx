@@ -27,7 +27,7 @@ const LocalStorageContext = createContext<LocalStorageContextState>({
 });
 
 /**
- * Returns a state from localStorage, and a setter to change that state. 
+ * Returns a state from localStorage, and a setter to change that state.
  * @param name The name. This is used as the `key` in localStorage.
  * @param initialValue If the value doesn't already exist, it will be initialized with `initialValue`
  * @returns the current state, and a setter
@@ -104,13 +104,13 @@ export function LocalStorageContextProvider({ children }) {
         return;
       }
 
-      dispatch({ type: "set", key: e.key, value: e.newValue });
+      dispatch({ type: "set", key: e.key, value: JSON.parse(e.newValue) });
     };
-    window.addEventListener('storage', listener);
+    window.addEventListener("storage", listener);
 
     return () => {
-      window.removeEventListener('storage', listener);
-    }
+      window.removeEventListener("storage", listener);
+    };
   }, []);
 
   return (
